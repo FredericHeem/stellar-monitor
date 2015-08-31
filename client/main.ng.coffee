@@ -76,7 +76,7 @@ angular.module 'opencore', ['angular-meteor', 'ngRoute', 'ngCookies', 'stellarPo
 
   $scope.formatAsset = (asset) ->
     if asset.isNative()
-      return "XLM"
+      return asset.getCode()
     else
       return asset.getCode() + "/" + asset.getIssuer()
 
