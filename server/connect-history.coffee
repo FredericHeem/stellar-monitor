@@ -7,8 +7,8 @@ if !HISTORY_DB_URL
 
 liveDbHistory = new LivePg(HISTORY_DB_URL, 'history');
 
-Meteor.publish 'historyLastLedgerHeaders', ->
+Meteor.publish 'horizonLastLedgerHeaders', ->
   liveDbHistory.select('SELECT * FROM history_ledgers ORDER BY sequence DESC limit 10')
 
-Meteor.publish 'historyLastTransactions', ->
+Meteor.publish 'horizonLastTransactions', ->
   liveDbHistory.select('SELECT * FROM history_transactions ORDER BY ledgerseq DESC limit 10')

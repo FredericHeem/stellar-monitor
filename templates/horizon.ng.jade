@@ -12,7 +12,7 @@ table(st-table="lastOperations" class="table table-striped")
       th Operations
       th Hash
   tbody
-    tr(ng-repeat="ledgerheader in historyLedgerheaders")
+    tr(ng-repeat="ledgerheader in ledgerheaders")
       td {{ledgerheader.sequence}}
       td {{ledgerheader.updated_at}}
       td {{ledgerheader.transaction_count}}
