@@ -8,9 +8,16 @@ angular.module('horizon', [ 'ngRoute', 'horizonPostgres', 'stellarUtils' ]).conf
 ]).controller 'HorizonController', ($scope, horizonData, stellarUtils)  ->
   $scope.resourceTitle = 'Horizon'
   $scope.resourceTemplate = 'templates/horizon.html'
-  $scope.stellarUtils = stellarUtils
+
   $scope.$meteorAutorun ->
     $scope.ledgerheaders = horizonData.ledgerheaders.reactive()
+
+  $scope.$meteorAutorun ->
+    pgOperations = horizonData.operations.reactive()
+    $scope.operations = for pgOperation in pgOperations
+      {
+        pg: pgOperation
+      }
 
   $scope.$meteorAutorun ->
     pgTransactions = horizonData.transactions.reactive()

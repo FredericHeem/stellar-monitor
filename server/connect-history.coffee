@@ -8,7 +8,10 @@ if !HISTORY_DB_URL
 liveDbHistory = new LivePg(HISTORY_DB_URL, 'history');
 
 Meteor.publish 'horizonLastLedgerHeaders', ->
-  liveDbHistory.select('SELECT * FROM history_ledgers ORDER BY sequence DESC limit 10')
+  liveDbHistory.select('SELECT * FROM history_ledgers ORDER BY sequence DESC limit 5')
 
 Meteor.publish 'horizonLastTransactions', ->
   liveDbHistory.select('SELECT * FROM history_transactions ORDER BY ledger_sequence DESC limit 10')
+
+Meteor.publish 'horizonLastOperations', ->
+  liveDbHistory.select('SELECT * FROM history_operations ORDER BY id DESC limit 10')
