@@ -7,3 +7,5 @@ data =
 
 angular.module 'stellarPostgres', []
 .factory 'stellarData', -> data
+
+#angular.module 'stellarPostgres',['smart-table']

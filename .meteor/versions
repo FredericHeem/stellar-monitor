@@ -31,6 +31,7 @@ jquery@1.11.3_2
 json@1.0.3
 lai:collection-extensions@0.1.4
 launch-screen@1.0.2
+less@1.0.14
 livedata@1.0.13
 localstorage@1.0.3
 logging@1.0.7
@@ -43,6 +44,9 @@ minimongo@1.0.8
 mobile-status-bar@1.0.3
 momentjs:moment@2.10.6
 mongo@1.1.0
+mquandalle:bower@1.4.1_3
+nemo64:bootstrap@3.3.5_2
+nemo64:bootstrap-data@3.3.5
 npm-bcrypt@0.7.8_2
 npm-container@1.1.0
 numtel:pg@1.0.2
