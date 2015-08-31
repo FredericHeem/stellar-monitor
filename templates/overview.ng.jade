@@ -63,23 +63,6 @@ table(st-table="lastOperations" class="table table-striped")
       td {{ledgerheader.closetime}}
       td {{ledgerheader.ledgerhash}}
 
-h4 Last 10 Historical Ledger Headers
-table(st-table="lastOperations" class="table table-striped")
-  thead
-    tr
-      th Ledger
-      th Close Time
-      th Transactions
-      th Operations
-      th Hash
-  tbody
-    tr(ng-repeat="ledgerheader in historyLedgerheaders")
-      td {{ledgerheader.sequence}}
-      td {{ledgerheader.updated_at}}
-      td {{ledgerheader.transaction_count}}
-      td {{ledgerheader.operation_count}}
-      td {{ledgerheader.ledger_hash}}
-
 h4 Active Peers
 div(ng-repeat="peer in peers")
   p Address: {{peer.ip}}:{{peer.port}}

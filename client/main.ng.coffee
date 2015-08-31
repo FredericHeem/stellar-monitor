@@ -1,6 +1,6 @@
 Meteor.subscribe 'allAccounts'
 
-angular.module 'opencore', ['angular-meteor', 'ngRoute', 'ngCookies', 'stellarPostgres']
+angular.module 'opencore', ['angular-meteor', 'ngRoute', 'ngCookies', 'stellarPostgres', 'horizon']
 
 .run ($meteor, $rootScope) ->
   $rootScope.appName = 'OpenCore'
@@ -124,8 +124,6 @@ angular.module 'opencore', ['angular-meteor', 'ngRoute', 'ngCookies', 'stellarPo
   $scope.$meteorAutorun ->
     $scope.ledgerheaders = stellarData.ledgerheaders.reactive()
 
-  $scope.$meteorAutorun ->
-    $scope.historyLedgerheaders = stellarData.historyLedgerheaders.reactive()
 
   $scope.$meteorAutorun ->
     $scope.peers = stellarData.peers.reactive()
