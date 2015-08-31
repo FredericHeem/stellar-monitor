@@ -20,6 +20,13 @@ angular.module('horizon', [ 'ngRoute', 'horizonPostgres', 'stellarUtils' ]).conf
       }
 
   $scope.$meteorAutorun ->
+    pgEffects = horizonData.effects.reactive()
+    $scope.effects = for pgEffect in pgEffects
+      {
+        pg: pgEffect
+      }
+
+  $scope.$meteorAutorun ->
     pgTransactions = horizonData.transactions.reactive()
     $scope.pgTransactions = pgTransactions
     $scope.transactions = for pgTransaction in pgTransactions

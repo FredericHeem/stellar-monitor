@@ -15,3 +15,7 @@ Meteor.publish 'horizonLastTransactions', ->
 
 Meteor.publish 'horizonLastOperations', ->
   liveDbHistory.select('SELECT * FROM history_operations ORDER BY id DESC limit 10')
+  
+# TODO order by what ?
+Meteor.publish 'horizonLastEffects', ->
+  liveDbHistory.select('SELECT * FROM history_effects ORDER BY history_account_id DESC limit 10')
