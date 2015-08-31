@@ -1,6 +1,6 @@
 Meteor.subscribe 'allAccounts'
 
-angular.module 'opencore', ['angular-meteor', 'ngRoute', 'ngCookies', 'stellarPostgres', 'horizon']
+angular.module 'opencore', ['angular-meteor', 'ngRoute', 'ngCookies', 'stellarPostgres', 'horizon', 'stellarUtils']
 
 .run ($meteor, $rootScope) ->
   $rootScope.appName = 'OpenCore'
@@ -62,17 +62,9 @@ angular.module 'opencore', ['angular-meteor', 'ngRoute', 'ngCookies', 'stellarPo
     Accounts.find({}, {sort: {created_at: -1}})
 
 
-.controller 'OverviewController', ($scope, $routeParams, stellarData) ->
+.controller 'OverviewController', ($scope, $routeParams, stellarData, stellarUtils) ->
   $scope.resourceTitle = 'Overview'
   $scope.resourceTemplate = 'templates/overview.html'
-
-  $scope.displayTransactionResult = (txResult) ->
-    results = txResult.result().result().results()
-    # TODO multiple ops per transaction
-    result = results[0]
-    #opName = result.value().switch()
-    opReturnValue = result.value().value().switch().name
-    return opReturnValue
 
   $scope.formatAsset = (asset) ->
     if asset.isNative()
@@ -109,7 +101,8 @@ angular.module 'opencore', ['angular-meteor', 'ngRoute', 'ngCookies', 'stellarPo
       {
         pg: pgTransaction
         body:new StellarBase.Transaction(pgTransaction.txbody)
-        result:StellarBase.Transaction.decodeTransactionResultPair(pgTransaction.txresult)
+        success: stellarUtils.txSuccess(StellarBase.Transaction.decodeTransactionResultPair(pgTransaction.txresult))
+        resultInfo: stellarUtils.displayTransactionResultInfo(StellarBase.Transaction.decodeTransactionResultPair(pgTransaction.txresult))
       }
 
     $scope.operations = []

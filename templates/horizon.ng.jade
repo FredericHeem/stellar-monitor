@@ -2,7 +2,7 @@ h3 Horizon
 
 p Display historical transactions, operations, ledgers etc ...
 
-h4 Last 10 Historical Ledger Headers
+h2 Last 10 Historical Ledger Headers
 table(st-table="lastOperations" class="table table-striped")
   thead
     tr
@@ -18,3 +18,25 @@ table(st-table="lastOperations" class="table table-striped")
       td {{ledgerheader.transaction_count}}
       td {{ledgerheader.operation_count}}
       td {{ledgerheader.ledger_hash}}
+
+h2 Last 10 Transactions
+table(st-table="horizonLastTransaction" class="table table-striped")
+  thead
+    tr
+      th Ledger
+      th Account
+      th Success
+      th Info
+      th Operation Count
+      th Account Sequence
+      th Transaction Hash
+
+  tbody
+    tr(ng-repeat="transaction in transactions")
+      td {{transaction.pg.ledger_sequence}}
+      td {{transaction.pg.account}}
+      td {{transaction.pg.success}}
+      td {{transaction.result}}
+      td {{transaction.pg.operation_count}}
+      td {{transaction.pg.account_sequence}}
+      td {{transaction.pg.transaction_hash}}

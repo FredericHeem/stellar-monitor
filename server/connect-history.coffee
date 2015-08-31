@@ -11,4 +11,4 @@ Meteor.publish 'horizonLastLedgerHeaders', ->
   liveDbHistory.select('SELECT * FROM history_ledgers ORDER BY sequence DESC limit 10')
 
 Meteor.publish 'horizonLastTransactions', ->
-  liveDbHistory.select('SELECT * FROM history_transactions ORDER BY ledgerseq DESC limit 10')
+  liveDbHistory.select('SELECT * FROM history_transactions ORDER BY ledger_sequence DESC limit 10')

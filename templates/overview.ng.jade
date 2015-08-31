@@ -33,8 +33,8 @@ table(st-table="lastTransactions" class="table table-striped")
     tr(ng-repeat="transaction in transactions")
       td {{transaction.pg.ledgerseq}}
       td {{transaction.pg.txid}}
-      td {{transaction.result.result().result().switch().name}}
-      td {{displayTransactionResult(transaction.result)}}
+      td {{transaction.success}}
+      td {{transaction.resultInfo}}
 
 
 h4 Last 10 Operations
