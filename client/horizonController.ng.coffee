@@ -33,6 +33,6 @@ angular.module('horizon', [ 'ngRoute', 'horizonPostgres', 'stellarUtils' ]).conf
       {
         pg: pgTransaction
         #body:new StellarBase.Transaction(pgTransaction.txbody)
-        success: stellarUtils.txSuccess(StellarBase.Transaction.decodeTransactionResultPair(pgTransaction.txresult))
-        resultInfo: stellarUtils.displayTransactionResultInfo(StellarBase.Transaction.decodeTransactionResultPair(pgTransaction.txresult))
+        success: stellarUtils.txSuccess(StellarBase.Transaction.decodeTransactionResultPair(pgTransaction.tx_result))
+        resultInfo: stellarUtils.displayTransactionResultInfo(StellarBase.Transaction.decodeTransactionResultPair(pgTransaction.tx_result))
       }
